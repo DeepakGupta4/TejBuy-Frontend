@@ -23,7 +23,7 @@ const SearchPage = () => {
         const response = await Axios({
             ...SummaryApi.searchProduct,
             data : {
-              search : searchText ,
+              text  : searchText ,
               page : page,
             }
         })
