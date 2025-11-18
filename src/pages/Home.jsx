@@ -1,10 +1,12 @@
 import React from 'react'
-import banner from '../assets/banner.jpg'
-import bannerMobile from '../assets/banner-mobile.jpg'
+import banner from '../assets/banner.png'
+import bannerMobile from '../assets/mobile banner.png'
 import { useSelector } from 'react-redux'
 import { valideURLConvert } from '../utils/valideURLConvert'
 import {Link, useNavigate} from 'react-router-dom'
 import CategoryWiseProductDisplay from '../components/CategoryWiseProductDisplay'
+import printImage from '../assets/instant printout.png'
+import giftPackImage from '../assets/gift pack.png'
 
 const Home = () => {
   const loadingCategory = useSelector(state => state.product.loadingCategory)
@@ -29,21 +31,104 @@ const Home = () => {
 
 
   return (
+    
    <section className='bg-white'>
+  
       <div className='container mx-auto'>
-          <div className={`w-full h-full min-h-48 bg-blue-100 rounded ${!banner && "animate-pulse my-2" } `}>
+          <div className={`w-full p-2 bg-blue-100 rounded ${!banner && "animate-pulse my-2" } `}>
+              <Link to={'/Fruits---Vegetables-68fb307fcbb7b14d7ee50d7b/Certified-Organic-68fb8ab45b6d5102c1a49be6'}>
               <img
                 src={banner}
-                className='w-full h-full hidden lg:block'
+                className='w-full h-60 hidden lg:block rounded-md'
                 alt='banner' 
               />
+              
               <img
                 src={bannerMobile}
-                className='w-full h-full lg:hidden'
+                className='w-full h-full lg:hidden mt-2 rounded-md'
                 alt='banner' 
               />
+            </Link>
           </div>
       </div>
+
+     
+
+    {/* 🔵 SERVICES SECTION */}
+<div className="container mx-auto mt-4 px-2">
+
+  <h2 className="text-2xl font-semibold mb-4">Special Services</h2>
+
+  <div className="flex flex-wrap gap-4 justify-center">
+
+    {/* 🖨️ Printout Suvidha Card */}
+    <div className="w-full sm:w-[48%] lg:w-[45%] bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-2xl shadow hover:shadow-md transition">
+  <h2 className="text-xl font-semibold mb-2">🖨️ Printout Suvidha</h2>
+
+  <p className="text-gray-600 mb-4">
+    PDF ya image upload karein – hum aapka print nikal kar turant deliver kar denge.
+  </p>
+
+  {/* Responsive Image */}
+  <img
+    src={printImage}
+    alt="print service"
+    className="
+      w-full 
+      h-32 
+      sm:h-40 
+      lg:h-48 
+      object-contain 
+      mb-4
+    "
+  />
+
+  <Link to="/printout-service">
+    <button className="bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700">
+      Printout Upload Kare
+    </button>
+  </Link>
+</div>
+
+
+    {/* 🎁 Gift Pack Service Card */}
+    <div className="w-full sm:w-[48%] lg:w-[45%] bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-2xl shadow hover:shadow-md transition">
+      <h2 className="text-xl font-semibold mb-2">🎁 Gift Pack Service</h2>
+      <p className="text-slate-950 mb-4">
+        Birthday, Anniversary ya kisi special occasion ke liye beautiful gift packs available.
+      </p>
+      {/* Responsive Image */}
+  <img
+    src={giftPackImage}
+    alt="print service"
+    className="
+      w-full 
+      h-32 
+      sm:h-40 
+      lg:h-48 
+      object-contain 
+      mb-4
+    "
+  />
+
+      <div className="flex gap-3">
+        <Link to="/gift-pack">
+          <button className="bg-pink-600 text-white px-5 py-2 rounded-lg hover:bg-pink-700">
+            Gift Pack Dekhein
+          </button>
+        </Link>
+
+        <Link to="/gift-customize">
+          <button className="border border-pink-600 text-pink-700 px-5 py-2 rounded-lg hover:bg-pink-600 hover:text-white">
+            Customize Kare
+          </button>
+        </Link>
+      </div>
+    </div>
+
+  </div>
+</div>
+
       
       <div className='container mx-auto px-4 my-2 grid grid-cols-5 md:grid-cols-8 lg:grid-cols-10  gap-2'>
           {

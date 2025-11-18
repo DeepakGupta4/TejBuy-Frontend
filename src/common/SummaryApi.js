@@ -9,7 +9,7 @@ const SummaryApi = {
     url: "/api/user/login",
     method: "post",
   },
-  forgot_password: {
+  forgot_password: {  
     url: "/api/user/forgot-password",
     method: "put",
   },
@@ -175,6 +175,16 @@ const SummaryApi = {
     url: "/api/order/admin/orders/status",
     method: "get",
   },
+  printoutOrder: {
+  url: "/api/printout/create",
+  method: "POST",
+},
+adminPrintoutList: {
+  url: "/api/printout",
+  method: "get",
+},
+
+
 };
 
 export default SummaryApi;
